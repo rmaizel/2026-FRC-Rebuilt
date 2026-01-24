@@ -17,8 +17,22 @@ public class Config {
      * @param bus_id    int 
      */
     public enum CAN {
-        ELEVATOR_MOTOR(30),
-        SHOOTER_MOTOR_L(33),
+        PDH(1),
+        ROBORIO(2),
+        SWERVE_FR_DRIVE(10),
+        SWERVE_FR_TURN(11),
+        SWERVE_FL_DRIVE(12),
+        SWERVE_FL_TURN(13),
+        SWERVE_BL_DRIVE(14),
+        SWERVE_BL_TURN(15),
+        SWERVE_BR_DRIVE(16),
+        SWERVE_BR_TURN(17),
+        SWERVE_FR_ENCODER(21),
+        SWERVE_FL_ENCODER(22),
+        SWERVE_BL_ENCODER(23),
+        SWERVE_BR_ENCODER(24),
+        PIGEON2(20), 
+        SHOOTER_MOTOR_L(30),
         SHOOTER_MOTOR_R(32);
 
         /* Do not change enum below this line */
