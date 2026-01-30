@@ -1,5 +1,5 @@
 /**
- * The constant values for the shooter were copied from the original Team102 Robot Code
+ * This class contains contstants for the Shooter scoring mechanism. 
  */
 package frc.robot.subsystems.score;
 
