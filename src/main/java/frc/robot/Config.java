@@ -32,8 +32,8 @@ public class Config {
         SWERVE_BL_ENCODER(23),
         SWERVE_BR_ENCODER(24),
         PIGEON2(20), 
-        SHOOTER_MOTOR_L(30),
-        SHOOTER_MOTOR_R(32);
+        SHOOTER_MOTOR(201),
+        ;
 
         /* Do not change enum below this line */
         public final int bus_id;

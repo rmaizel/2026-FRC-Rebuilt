@@ -8,15 +8,15 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
-import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalInput; // Do we have a sensor?
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Config;
 
 public class Shooter extends SubsystemBase {
     private SparkMaxConfig motorConfig = new SparkMaxConfig();
-    private SparkMax rightShooterMotor = new SparkMax(Config.CAN.SHOOTER_MOTOR_R.getID(), MotorType.kBrushless);
-    private SparkMax leftShooterMotor = new SparkMax(Config.CAN.SHOOTER_MOTOR_L.getID(), MotorType.kBrushless);
-    private DigitalInput coralSensor = new DigitalInput(Config.DIO.CORAL_SENSOR_F.getPort());
+    private SparkMax ShooterMotor = new SparkMax(Config.CAN.SHOOTER_MOTOR.getID(), MotorType.kBrushless);
+    //private SparkMax leftShooterMotor = new SparkMax(Config.CAN.SHOOTER_MOTOR_L.getID(), MotorType.kBrushless);
+    //private DigitalInput coralSensor = new DigitalInput(Config.DIO.CORAL_SENSOR_F.getPort());
 
   /** Creates a new Shooter. */
   public Shooter() {}
