@@ -25,11 +25,11 @@ public class Shooter extends SubsystemBase {
       range / (
         Math.sqrt(
           (
-            2 / ShooterConstants.GRAVITY * (
-              ShooterConstants.Y_FINAL - ShooterConstants.Y_INITIAL - Math.tan(ShooterConstants.SHOOTER_ANGLE) * range
+            2 / ShooterConfig.GRAVITY * (
+              ShooterConfig.Y_FINAL - ShooterConfig.Y_INITIAL - Math.tan(ShooterConfig.SHOOTER_ANGLE) * range
             )
           )
-        ) * Math.cos(ShooterConstants.SHOOTER_ANGLE)
+        ) * Math.cos(ShooterConfig.SHOOTER_ANGLE)
       )
     ); // Really need to simplify this one. 
 

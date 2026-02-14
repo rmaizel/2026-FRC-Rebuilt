@@ -12,6 +12,7 @@ public class Config {
     /**
      * Enum for CAN bus devices ONLY, in the format: {@code NAME(bus_id)}
      * <p>Use {@code Config.CAN.<NAME>.getID()} method to return the bus ID value.
+     * <p>Maximum effective range for all CAN IDs is 0-62 (6 bits).
      * 
      * @param NAME      String, ALL CAPS (it's a constant!)
      * @param bus_id    int 
@@ -19,20 +20,23 @@ public class Config {
     public enum CAN {
         ROBORIO(1),
         PDH(2),
-        SHOOTER_MOTOR(21),
-        PIGEON2(100), 
-        SWERVE_FR_DRIVE(110),
-        SWERVE_FL_DRIVE(111),
-        SWERVE_BL_DRIVE(112),
-        SWERVE_BR_DRIVE(113),
-        SWERVE_FR_TURN(120),
-        SWERVE_FL_TURN(121),
-        SWERVE_BL_TURN(122),
-        SWERVE_BR_TURN(123),
-        SWERVE_FR_ENCODER(130),
-        SWERVE_FL_ENCODER(131),
-        SWERVE_BL_ENCODER(132),
-        SWERVE_BR_ENCODER(133),
+        ACTUATOR(9),
+        INTAKE_MOTOR(10),
+        SHOOTER_MOTOR(20),
+        // Reserved for Swerve
+        SWERVE_FR_DRIVE(50),
+        SWERVE_FR_TURN(51),
+        SWERVE_FR_ENCODER(52),
+        SWERVE_FL_DRIVE(53),
+        SWERVE_FL_TURN(54),
+        SWERVE_FL_ENCODER(55),
+        SWERVE_BL_DRIVE(56),
+        SWERVE_BL_TURN(57),
+        SWERVE_BL_ENCODER(58),
+        SWERVE_BR_DRIVE(59),
+        SWERVE_BR_TURN(60),
+        SWERVE_BR_ENCODER(61),
+        PIGEON2(62), 
         ;
 
         /* Do not change enum below this line */

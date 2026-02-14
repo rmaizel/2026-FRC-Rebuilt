@@ -8,8 +8,8 @@ package frc.robot.subsystems.score;
 
 // import edu.wpi.first.math.util.*;
 
-public class ShooterConstants {
-    private static double MAX_SPEED = 0.2;
+public class ShooterConfig {
+    private static final double MAX_SPEED = 0.2;
 
     public static final double Y_FINAL = 56.4; //in inches- might change based on air resistance 
     public static final double Y_INITIAL = 21.0; //TODO change based on final CAD model 
@@ -22,12 +22,12 @@ public class ShooterConstants {
      * @param right
      */
     public enum DualMotorSpeed {
-       MAX(-MAX_SPEED,MAX_SPEED),
+        MAX(-MAX_SPEED,MAX_SPEED),
         INTAKE(-0.05,0.05),
         L1(-0.3,-0.1),
         L2(-0.15,0.15),
         L3(-0.15,0.15),
-        L4(-0.15,0.15)
+        L4(-0.15,0.15),
         ; // end enum values
 
         private final double left;
