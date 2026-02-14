@@ -6,14 +6,14 @@ package frc.robot.subsystems.score;
 
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkFlex;
-import com.revrobotics.spark.config.SparkFlexConfig;
+// import com.revrobotics.spark.config.SparkFlexConfig;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.units.Units.*;
+// import edu.wpi.first.units.Units.*;
 import frc.robot.Config;
 
 public class Shooter extends SubsystemBase {
-  private SparkFlexConfig motorConfig = new SparkFlexConfig();
+  // private SparkFlexConfig motorConfig = new SparkFlexConfig();
   private SparkFlex shooterMotor = new SparkFlex(Config.CAN.SHOOTER_MOTOR.getID(), MotorType.kBrushless);
 
   /**

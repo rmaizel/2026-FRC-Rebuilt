@@ -3,10 +3,10 @@
  */
 package frc.robot.subsystems.score;
 
-import static edu.wpi.first.units.Units.Gs;
-import static edu.wpi.first.units.Units.MetersPerSecond;
+// import static edu.wpi.first.units.Units.Gs;
+// import static edu.wpi.first.units.Units.MetersPerSecond;
 
-import edu.wpi.first.math.util.*;
+// import edu.wpi.first.math.util.*;
 
 public class ShooterConstants {
     private static double MAX_SPEED = 0.2;
