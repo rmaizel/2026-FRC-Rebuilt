@@ -18,26 +18,28 @@ public class Config {
      * @param bus_id    int 
      */
     public enum CAN {
-        ROBORIO(1),
-        PDH(2),
-        ACTUATOR(9),
-        INTAKE_MOTOR(10),
-        SHOOTER_MOTOR(20),
-        // Reserved for Swerve
-        SWERVE_FR_DRIVE(50),
-        SWERVE_FR_TURN(51),
-        SWERVE_FR_ENCODER(52),
-        SWERVE_FL_DRIVE(53),
-        SWERVE_FL_TURN(54),
-        SWERVE_FL_ENCODER(55),
-        SWERVE_BL_DRIVE(56),
-        SWERVE_BL_TURN(57),
-        SWERVE_BL_ENCODER(58),
-        SWERVE_BR_DRIVE(59),
-        SWERVE_BR_TURN(60),
-        SWERVE_BR_ENCODER(61),
-        PIGEON2(62), 
-        ;
+        ROBORIO(0),
+        PDH(1),
+        PCM(2),
+        CANDLE(3),
+        // Reserved for Swerve, but officially loaded elsewhere.
+        PIGEON2(20), // Should be 15, couldn't change for some reason
+        SWERVE_FR_DRIVE(17),
+        SWERVE_FR_TURN(18),
+        SWERVE_FR_ENCODER(19),
+        SWERVE_FL_DRIVE(10),
+        SWERVE_FL_TURN(11),
+        SWERVE_FL_ENCODER(12),
+        SWERVE_BL_DRIVE(25), // had to change this from 20 to 25 because chaning Pigeon CAN ID wasn't working
+        SWERVE_BL_TURN(21),
+        SWERVE_BL_ENCODER(22),
+        SWERVE_BR_DRIVE(27),
+        SWERVE_BR_TURN(28),
+        SWERVE_BR_ENCODER(29),
+        // Other items
+        INTAKE_MOTOR(30),
+        SHOOTER_MOTOR(40),
+        ; // Close ENUM list after last item
 
         /* Do not change enum below this line */
         public final int bus_id;
@@ -63,9 +65,9 @@ public class Config {
      * @param port_number (int)
      */
     public enum DIO {
-        ELEVATOR_LIMIT_SWITCH(0),
-        CORAL_SENSOR_F(2),
-        CORAL_SENSOR_B(1); 
+        LIMIT_SWITCH_ON_CLIMBER(0),
+        LIMIT_SWITCH_ON_FRAME(1),
+        ; // Close ENUM list after last item
 
         /* Do not change enum below this line */
         public final int port; 
@@ -77,6 +79,33 @@ public class Config {
         /** 
          * Returns the value representing the DIO Port number for the named device. 
          * <p>Ex. {@code Config.DIO.ELEVATOR_LIMIT_SWITCH.getPort()} 
+         * @return int
+         */
+        public int getPort() {
+            return port;
+        }
+
+    }
+
+     /**
+     * Enum for PWM devices ONLY, in the format: {@code NAME(port_number)}
+     * @param NAME (String, ALL CAPS)
+     * @param port_number (int)
+     */
+    public enum PWM {
+        ACTUATOR(0),
+        ; // Close ENUM list after last item
+
+        /* Do not change enum below this line */
+        public final int port; 
+
+        private PWM(int port) {
+            this.port = port;
+        }
+
+        /** 
+         * Returns the value representing the PWM Port number for the named device. 
+         * <p>Ex. {@code Config.PWM.ACTUATOR.getPort()} 
          * @return int
          */
         public int getPort() {
