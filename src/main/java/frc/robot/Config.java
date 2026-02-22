@@ -22,7 +22,7 @@ public class Config {
         PDH(1),
         PCM(2),
         CANDLE(3),
-        // Reserved for Swerve, but officially loaded elsewhere.
+        // Reserved for Swerve, but loaded via JSON files in /deploy.
         PIGEON2(20), // Should be 15, couldn't change for some reason
         SWERVE_FR_DRIVE(17),
         SWERVE_FR_TURN(18),
@@ -39,6 +39,9 @@ public class Config {
         // Other items
         INTAKE_MOTOR(30),
         SHOOTER_MOTOR(40),
+        INDEXER_MOTOR(50),
+        FEEDER_MOTOR(51),
+        CLIMBER_MOTOR(60),
         ; // Close ENUM list after last item
 
         /* Do not change enum below this line */
@@ -93,8 +96,7 @@ public class Config {
      * @param port_number (int)
      */
     public enum PWM {
-        ACTUATOR(0),
-        SERVO(2),
+        SHOOTER_HOOD_ACTUATOR(2),
         ; // Close ENUM list after last item
 
         /* Do not change enum below this line */
