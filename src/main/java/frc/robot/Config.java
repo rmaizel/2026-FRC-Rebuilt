@@ -5,7 +5,7 @@
 package frc.robot;
 
 /** 
- * Use to define all CONSTANTS for robot configuration. 
+ * Use to define Port and ID assignments for robot configuration. 
  * Enums are provided for CAN bus devices, and DIO ports.
  */
 public class Config {
@@ -94,6 +94,7 @@ public class Config {
      */
     public enum PWM {
         ACTUATOR(0),
+        SERVO(2),
         ; // Close ENUM list after last item
 
         /* Do not change enum below this line */
