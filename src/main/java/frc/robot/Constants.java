@@ -65,8 +65,8 @@ public final class Constants {
     public static final float STARTING_HEIGHT = 22.25f; //TODO change based on final CAD model 
     public static final float GRAVITY = -386.4f; //inches per seconds squared
     public static final float SHOOTER_ANGLE = (float)(85f * Math.PI/180); //in degrees might need to convert 
-    public static final float HIGH_SHOOTER_ANGLE = 85.0f; //TODO find good angles for all constants
-    public static final float PASSING_ANGLE = 45.0f;
+    public static final int HIGH_SHOOTER_ANGLE = 85;
+    public static final int PASSING_ANGLE = 48;
     public static final float PASSING_VELOCITY = 0.5744f;
     public static final float ACTUATOR_EXTENSION = 0.80f;
     public static final float SHOOTINGVELOCITY_DEFAULT = -1.0f;

@@ -6,44 +6,60 @@ package frc.robot.subsystems.score;
 
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkFlex;
-// import com.revrobotics.spark.config.SparkFlexConfig;
+import com.revrobotics.RelativeEncoder;
 
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-// import edu.wpi.first.units.Units.*;
 import frc.robot.Config;
+import frc.robot.Constants;
 
+/**
+ * Shooter subsystem launches the fuel (yellow ball) at high speed from the robot. 
+ * It can be used to score, or to pass fuel across the field during matches, and 
+ * contains the following components: 
+ * <p> - Shooter Hood: determines the angle of release, controlled by a linear actuator, 
+ * and can accept angles from 48 degrees (actuator set 0) to 85 degrees (actuator set 1)
+ * <p> - Shooter Flywheel: determines the speed of fuel, controlled by a single motor. 
+ */
 public class Shooter extends SubsystemBase {
-  // private SparkFlexConfig motorConfig = new SparkFlexConfig();
-  private SparkFlex shooterMotor = new SparkFlex(Config.CAN.SHOOTER_MOTOR.getID(), MotorType.kBrushless);
+  // Configures components
+  private SparkFlex shooterFlywheel = new SparkFlex(Config.CAN.SHOOTER_MOTOR.getID(), MotorType.kBrushless);
+  private RelativeEncoder shooterEncoder = shooterFlywheel.getEncoder();
+  private Servo shooterHood = new Servo(Config.PWM.SHOOTER_HOOD_ACTUATOR.getPort());
 
   /**
-   * Launches the Fuel (yellow ball) out of the shooter. 
-   * @param range (float) distance to hub in inches
+   * Launches the Fuel (yellow ball) out of the shooter, at the speed and angle 
+   * @param angle (int) desired angle of the shooter hood in degrees
+   * @param rpm OPTIONAL - (int) desired speed of shooter wheel in RPMs, MAX if omitted
    */
-  public void shootFuel(double range){
-    float shooterVelocityInches = (float) (
-      range / (
-        Math.sqrt(
-          (
-            2 / ShooterConfig.GRAVITY * (
-              ShooterConfig.Y_FINAL - ShooterConfig.Y_INITIAL - Math.tan(ShooterConfig.SHOOTER_ANGLE) * range
-            )
-          )
-        ) * Math.cos(ShooterConfig.SHOOTER_ANGLE)
-      )
-    ); // Really need to simplify this one. 
-
-    float shooterVelocityRpm = (float) shooterVelocityInches * (float) (120/(4*Math.PI));
-    float percentSpeed = (shooterVelocityRpm/6784);
-
-    if (shooterVelocityRpm < 6784 && shooterVelocityRpm > 970) {
-      shooterMotor.set(percentSpeed);
+  public void run(int angle, int rpm) {
+    /*
+     * TODO Set Hood Angle
+     * - The angle can be in the range of 48 to 85 degrees, based on the length of the linear actuator.
+     * - Should take in the desired angle, and then extend or retract to the actuator accordingly. 
+     */
+    if (angle <= Constants.Shooter.PASSING_ANGLE) {
+      shooterHood.setPosition(1.0);
+    } else if (angle >= Constants.Shooter.HIGH_SHOOTER_ANGLE) {
+      shooterHood.setPosition(0.0);
     } else {
-      shooterMotor.set(1.0);
+      double calcPosition = 1 - ((angle - Constants.Shooter.PASSING_ANGLE) / (Constants.Shooter.HIGH_SHOOTER_ANGLE-Constants.Shooter.PASSING_ANGLE));
+      shooterHood.setPosition(calcPosition);      
     }
+
+    /*
+     * TODO Set Flywheel Speed
+     * - based on the input RPM parameter, use the encoder and a PID loop to accelerate the flywheel to the desired RPMs
+     * - It should get to the target RPM quickly, and recover quickly when it's feeding in fuel
+     */
   }
 
-  /** Creates a new Shooter. */
+  //Overload - run with max RPM
+  public void run(int angle) {
+    run(angle, 6500);
+  }
+
+    /** Creates a new Shooter. */
   public Shooter() {
 
   }
