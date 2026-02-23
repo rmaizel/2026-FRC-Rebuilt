@@ -5,8 +5,13 @@
 package frc.robot.subsystems.score;
 
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.ClosedLoopConfig;
+import com.revrobotics.spark.config.SparkBaseConfig;
+import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.spark.SparkClosedLoopController;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -26,6 +31,9 @@ public class Shooter extends SubsystemBase {
   private SparkFlex shooterFlywheel = new SparkFlex(Config.CAN.SHOOTER_MOTOR.getID(), MotorType.kBrushless);
   private RelativeEncoder shooterEncoder = shooterFlywheel.getEncoder();
   private Servo shooterHood = new Servo(Config.PWM.SHOOTER_HOOD_ACTUATOR.getPort());
+  private SparkClosedLoopController shooterController = shooterFlywheel.getClosedLoopController();
+  private ClosedLoopConfig shooterCLConfig = new ClosedLoopConfig().pid(0.0017, 0, 0); 
+
 
   /**
    * Launches the Fuel (yellow ball) out of the shooter, at the speed and angle 
@@ -52,9 +60,9 @@ public class Shooter extends SubsystemBase {
      * TODO Set Flywheel Speed
      * - based on the input RPM parameter, use the encoder and a PID loop to accelerate the flywheel to the desired RPMs
      * - It should get to the target RPM quickly, and recover quickly when it's feeding in fuel
-     * 
-     * How do I 
      */
+    
+    shooterController.setSetpoint(rpm, ControlType.kVelocity);
   }
 
   //Overload - run with max RPM

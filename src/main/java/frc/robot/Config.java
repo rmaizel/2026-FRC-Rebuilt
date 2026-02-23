@@ -53,7 +53,7 @@ public class Config {
 
         /** 
          * Returns the value representing the CAN Bus ID for the named device. 
-         * <p>Ex. {@code Config.CAN.ELEVATOR_MOTOR.getID()} 
+         * <p>Ex. {@code Config.CAN.<NAME>.getID()} 
          * @return int
          */
         public int getID() {
@@ -81,7 +81,7 @@ public class Config {
 
         /** 
          * Returns the value representing the DIO Port number for the named device. 
-         * <p>Ex. {@code Config.DIO.ELEVATOR_LIMIT_SWITCH.getPort()} 
+         * <p>Ex. {@code Config.DIO.<NAME>.getPort()} 
          * @return int
          */
         public int getPort() {
@@ -108,7 +108,7 @@ public class Config {
 
         /** 
          * Returns the value representing the PWM Port number for the named device. 
-         * <p>Ex. {@code Config.PWM.ACTUATOR.getPort()} 
+         * <p>Ex. {@code Config.PWM.<NAME>.getPort()} 
          * @return int
          */
         public int getPort() {
