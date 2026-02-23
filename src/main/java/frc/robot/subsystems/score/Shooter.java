@@ -29,12 +29,12 @@ public class Shooter extends SubsystemBase {
 
   /**
    * Launches the Fuel (yellow ball) out of the shooter, at the speed and angle 
-   * @param angle (int) desired angle of the shooter hood in degrees
-   * @param rpm OPTIONAL - (int) desired speed of shooter wheel in RPMs, MAX if omitted
+   * @param angle (float) desired angle of the shooter hood in degrees
+   * @param rpm OPTIONAL - (float) desired speed of shooter wheel in RPMs, MAX if omitted
    */
-  public void run(int angle, int rpm) {
+  public void run(float angle, float rpm) {
     /*
-     * TODO Set Hood Angle
+     * Sets Hood Angle
      * - The angle can be in the range of 48 to 85 degrees, based on the length of the linear actuator.
      * - Should take in the desired angle, and then extend or retract to the actuator accordingly. 
      */
@@ -43,6 +43,7 @@ public class Shooter extends SubsystemBase {
     } else if (angle >= Constants.Shooter.HIGH_SHOOTER_ANGLE) {
       shooterHood.setPosition(0.0);
     } else {
+      // Calculates the percentage of extension needed to achieve angles between passing (48) and high angle (85)
       double calcPosition = 1 - ((angle - Constants.Shooter.PASSING_ANGLE) / (Constants.Shooter.HIGH_SHOOTER_ANGLE-Constants.Shooter.PASSING_ANGLE));
       shooterHood.setPosition(calcPosition);      
     }
@@ -51,6 +52,8 @@ public class Shooter extends SubsystemBase {
      * TODO Set Flywheel Speed
      * - based on the input RPM parameter, use the encoder and a PID loop to accelerate the flywheel to the desired RPMs
      * - It should get to the target RPM quickly, and recover quickly when it's feeding in fuel
+     * 
+     * How do I 
      */
   }
 
