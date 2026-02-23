@@ -32,8 +32,10 @@ public class Shooter extends SubsystemBase {
   private RelativeEncoder shooterEncoder = shooterFlywheel.getEncoder();
   private Servo shooterHood = new Servo(Config.PWM.SHOOTER_HOOD_ACTUATOR.getPort());
   private SparkClosedLoopController shooterController = shooterFlywheel.getClosedLoopController();
-  private ClosedLoopConfig shooterCLConfig = new ClosedLoopConfig().pid(0.0017, 0, 0); 
+  private SparkFlexConfig shooterConfig = new SparkFlexConfig();
+  private ClosedLoopConfig pidConfig = new ClosedLoopConfig().pid(0.0017,0,0).outputRange(0, 1);
 
+  // Consider moving the Spark Configurations to Robot or Config so that they can be persisted when things spin up originally. 
 
   /**
    * Launches the Fuel (yellow ball) out of the shooter, at the speed and angle 
