@@ -4,7 +4,7 @@
  *   IF YOU STILL DON'T UNDERSTAND CHECK LAST YEARS CODE!!!
  * (also I can't spell half these instructions are probubly spelld wrong :D)
 */
-package frc.robot.subsystems;
+package frc.robot.subsystems.lights;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
