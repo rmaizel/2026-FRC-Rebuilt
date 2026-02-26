@@ -7,12 +7,16 @@
 package frc.robot.subsystems.lights;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Config;
+import com.ctre.phoenix6.hardware.CANdle;
 
 // TODO 1: import CANdle/LED files
-// TODO 2: import driverstation & Subsystembase
+// TODO 2: import driverstation & Subsystembase 
+  // ?? Do I need a DriverStation class?
 
 public class Lights extends SubsystemBase {
   // TODO 3: Create a CANdle object
+  CANdle candle = new CANdle(Config.CAN.CANDLE.getID());
 
   // TODO 4: Define total # of LEDs on robot
 
