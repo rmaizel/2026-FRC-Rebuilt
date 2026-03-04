@@ -36,7 +36,7 @@ public final class Constants {
   /**
    * Robot physical values; required for proper Swerve and operational guidance
    */
-  public static final float ROBOT_MASS = (float) (148 - 20.3) * 0.453592f; // 32lbs * kg per pound
+  public static final float ROBOT_MASS = (float) (148.0f - 20.3f) * 0.453592f; // 32lbs * kg per pound
   public static final Matter CHASSIS = new Matter(new Translation3d(0, 0, Units.inchesToMeters(8)), ROBOT_MASS);
   public static final float LOOP_TIME = 0.13f; //s, 20ms + 110ms sprk max velocity lag
   public static final float MAX_SPEED = (float) Units.feetToMeters(14.5); // Maximum speed of the robot in meters per second, used to limit acceleration.
@@ -64,7 +64,7 @@ public final class Constants {
     public static final float END_HEIGHT = 56.4f; //in inches- might change based on air resistance 
     public static final float STARTING_HEIGHT = 22.25f; //TODO change based on final CAD model 
     public static final float GRAVITY = -386.4f; //inches per seconds squared
-    public static final float SHOOTER_ANGLE = (float)(85f * Math.PI/180); //in degrees might need to convert 
+    public static final float SHOOTER_ANGLE = (float) (85 * Math.PI/180); //in degrees might need to convert 
     public static final float HIGH_SHOOTER_ANGLE = 85f;
     public static final float PASSING_ANGLE = 48f;
     public static final float PASSING_VELOCITY = 0.5744f;

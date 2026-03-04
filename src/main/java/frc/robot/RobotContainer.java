@@ -12,7 +12,14 @@ public class RobotContainer {
     configureBindings();
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    /**
+     * TODO Configure Driver XBox controller
+     * Buttons should... 
+     * 
+     */ 
+    // TODO Configure Operator XBox controller
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
